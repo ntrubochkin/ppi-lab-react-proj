@@ -2,7 +2,6 @@ import React from 'react';
 import MyButton from '../UI/button/MyButton';
 import { useNavigate } from 'react-router-dom';
 import styles from '../PostItem/PostItem.module.css';
-import { CSSTransition } from 'react-transition-group';
 
 
 const PostItem = ({item}) => {

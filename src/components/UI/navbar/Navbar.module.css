@@ -1,5 +1,5 @@
 .navHeader {
-    background-color: #F3F3F3;
+    background-color: var(--hover);
     display: flex;
     align-items: baseline;
     padding: 0.5rem;

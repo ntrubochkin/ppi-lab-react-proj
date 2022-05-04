@@ -8,7 +8,7 @@ import Pagination from '../../components/UI/pagination/Pagination.js';
 import Loader from '../../components/UI/loader/Loader.js';
 import PostList from '../../components/PostList/PostList.js';
 import PostForm from '../../components/PostForm.js';
-import PostsFilter from '../../components/PostsFilter.js';
+import PostsFilter from '../../components/filters/PostsFilter.js';
 import NewsService from '../../API/PostsService.js';
 import { useObserver } from '../../hooks/useObserver.js';
 import MySelect from '../../components/UI/select/MySelect.js';
@@ -19,61 +19,37 @@ function Posts() {
     const [limit, setLimit] = useState(9);
     const [start, setStart] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [filter, setFilter] = useState({sort: '', query: '', queryField: ''});
     const lastElement = useRef();
 
-    // const [filter, setFilter] = useState({sort: '', query: ''});
-    // const [modal, setModal] = useState(false);
-
-    const [fetchNews, isNewsLoading, newsError] = useFetching(async (limit, start) => {
-        const res = await NewsService.getAll(limit, start);
+    const [fetchNews, isNewsLoading, newsError] = useFetching(async (start, limit, filter, clear) => {
+        const res = await NewsService.getNews(start, limit, filter);
         const totalCount = await NewsService.getNewsCount();
-        setNews([...news, ...res.data]);
+        if(clear) {
+            setNews(res);
+        } else {
+            setNews([...news, ...res]);
+        }
+        setStart(start);
         setTotalPages(getPageCount(totalCount, limit));
     });
 
     useEffect(() => {
-        fetchNews(start, limit);
-    }, [start, limit]);
+        fetchNews(0, limit, filter, true);
+    }, [filter]);
 
     useObserver(lastElement, start < totalPages, isNewsLoading, () => {
-        setStart(start + 9);
+        if(news.length > 0) {
+            fetchNews(start + limit, limit, filter, false);
+        }
     });
-    // const sortedAndSearchedPosts = usePosts(news, filter.sort, filter.query);  
-
-    // const createPost = (newPost) => {
-    //     setPosts([...posts, newPost]);
-    //     setModal(false);
-    // }
-
-    // const removePost = (post) => {
-    //     setNews(news.filter(p => p.id !== post.id));
-    // }
-
-    // const changePage = (page) => {
-    //     setStart(page);
-    // }
 
     return (
         <div className="App">
-            {/* <MyButton onClick={() => setModal(true)}>Post cringe</MyButton> */}
-            {/* <MyModal visible={modal} setVisible={setModal}>
-                <PostForm create={createPost}/>
-            </MyModal> */}
-            {/* <hr/> */}
-            {/* <PostsFilter filter={filter} setFilter={setFilter}/> */}
-            {/* <MySelect 
-                value={limit}
-                onChange={value => setLimit(value)}
-                defaultValue="Posts count"
-                options={[
-                    {value: 5, name: '5'},
-                    {value: 10, name: '10'},
-                    {value: 15, name: '15'},
-                    {value: -1, name: 'All'}
-                ]}
-            /> */}
             {isNewsLoading && <Loader/>}
             <div className={styles.newsWrapper}>
+                <PostsFilter filter={filter} setFilter={setFilter}/>
+                <hr/>
                 {newsError && <h1>Error</h1>}
                 <PostList news={news}/>
                 <div ref={lastElement} style={{display: 'hidden', height: '50px'}}></div>

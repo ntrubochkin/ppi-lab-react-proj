@@ -8,23 +8,27 @@ export default class NewsService {
         return res.data;
     }
 
-    static async getAll(start, limit) {
-        const res = await axios.get(this.URL, {
-            params: {
-                _start: start,
-                _limit: limit
+    static async getNews(start, limit, filter) {
+        let currentUrl = `${this.URL}?_start=${start}&_limit=${limit}`;
+
+        if(filter.sort) {
+            currentUrl += `&_sort=${filter.sort}`;
+        }
+
+        if(filter.query) {
+            if(!filter.queryField || filter.queryField === 'title') {
+                currentUrl += `&title_contains=${filter.query}`;
+            } else {
+                currentUrl += `&summary_contains=${filter.query}`;
             }
-        });
-        return res;
+        }
+
+        const res = await fetch(currentUrl);
+        return await res.json();
     }
 
     static async getById(id) {
         const res = await axios.get(this.URL + `/${id}`);
         return res;
     }
-
-    // static async getCommentsByPostId(id) {
-    //     const res = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
-    //     return res;
-    // }
 }

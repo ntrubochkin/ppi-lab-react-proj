@@ -1,22 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AppContext';
 import classes from '../navbar/Navbar.module.css';
 import MyButton from '../button/MyButton';
 
 const Navbar = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext);
+    const navigator = useNavigate();
 
     const logout = () => {
         setIsAuth(false);
         localStorage.removeItem('auth');
+        navigator('/');
     }
 
     return (
         <div className={classes.navHeader}>
-            <MyButton onClick={() => logout()}>Log out</MyButton>
-            <Link to="/about">Creator</Link>
-            <Link to="/posts">News</Link>
+            <MyButton style={{color: 'white'}} onClick={() => logout()}>Log out</MyButton>
+            <Link style={{color: 'white'}} to="/about">About</Link>
+            <Link style={{color: 'white'}} to="/posts">News</Link>
         </div>
     );
 };

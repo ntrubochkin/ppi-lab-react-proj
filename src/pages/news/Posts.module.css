@@ -4,3 +4,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.newsWrapper > hr {
+    border: none;
+    border-top: 1px solid silver;
+    width: 60%;
+    margin: 0.5rem 0;
+}
