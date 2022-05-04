@@ -1,0 +1,74 @@
+.card {
+    background-color: white;
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+                rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    transition: transform 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    animation: appearance 750ms linear;
+    animation-iteration-count: 1;
+}
+
+.card:hover {
+    transform: translate(+10px, -10px);
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dateSpan {
+    color: var(--font-secondary);
+    margin-right: auto;
+}
+
+.cardHeader > img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.title {
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.25rem;
+    flex-grow: 1;
+    text-transform: capitalize;
+    word-wrap: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes appearance {
+    0% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+}

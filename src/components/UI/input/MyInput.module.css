@@ -1,0 +1,7 @@
+.inputItem {
+    border: 2px solid var(--my-pink);
+    background: none;
+    padding: 14px 10px;
+    text-align: center;
+    outline: none;
+}

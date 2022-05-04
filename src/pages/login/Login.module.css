@@ -1,0 +1,26 @@
+.bg {
+    width: 100vw;
+    height: 100vh;
+    background: url(https://source.unsplash.com/1920x1080/?space) no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -1;
+}
+
+.loginWrapper {
+    border: 5px solid var(--my-pink);
+    background: rgba(121, 84, 103, 0.5);
+    text-align: center;
+    padding: 20px 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.inputsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

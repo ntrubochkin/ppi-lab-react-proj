@@ -1,0 +1,13 @@
+.btn {
+    border: 2px solid var(--my-pink);
+    background: none;
+    padding: 14px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 150px;
+    transition: width 0.2s;
+}
+
+.btn:hover {
+    background: rgba(255, 192, 203, 0.2);
+}

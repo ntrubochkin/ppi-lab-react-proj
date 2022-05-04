@@ -1,0 +1,24 @@
+.loader {
+    --size: 100px;
+    --double-size: calc(2 * var(--size));
+    width: var(--double-size);
+    height: var(--size);
+    position: absolute;
+    border: 4px solid pink;
+    border-bottom: none;
+    border-top-left-radius: var(--double-size);
+    border-top-right-radius: var(--double-size);
+    transform-origin: 50% 100%;
+    top: calc(50% - var(--size));
+    left: calc(50% - var(--size));
+    animation: rotate 1s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
