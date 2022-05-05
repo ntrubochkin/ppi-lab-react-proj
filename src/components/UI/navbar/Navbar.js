@@ -19,6 +19,7 @@ const Navbar = () => {
             <MyButton style={{color: 'white'}} onClick={() => logout()}>Log out</MyButton>
             <Link style={{color: 'white'}} to="/about">About</Link>
             <Link style={{color: 'white'}} to="/posts">News</Link>
+            <Link style={{color: 'white'}} to="/bookmarks">Bookmarks</Link>
         </div>
     );
 };

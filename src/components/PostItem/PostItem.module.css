@@ -37,6 +37,10 @@
     flex-shrink: 0;
 }
 
+.skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .title {
     width: 100%;
     font-weight: bold;
@@ -47,10 +51,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-}
-
-.skeleton {
-    animation: skeleton-loading 1s linear infinite alternate;
 }
 
 @keyframes appearance {

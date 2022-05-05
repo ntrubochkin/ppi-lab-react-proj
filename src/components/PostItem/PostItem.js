@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import MyButton from '../UI/button/MyButton';
 import { useNavigate } from 'react-router-dom';
 import styles from '../PostItem/PostItem.module.css';
+import icon from '../../static/icons/notebook.png';
+import { BookmarksContext } from '../../context/AppContext';
 
 
 const PostItem = ({item}) => {
     const navigator = useNavigate();
+    const {bookmarks} = useContext(BookmarksContext);
+
+    const customCss = {
+        button: {
+            border: 'none',
+            width:  '32px',
+            height: '32px',
+            marginLeft: 'auto',
+            padding: '0'
+        },
+        icon: {
+            width: '100%',
+            height: '100%'
+        }
+    }
+
+    const addBookmark = (e) => {
+        e.stopPropagation();
+        
+        if(bookmarks.indexOf(item.id) === -1) {
+            bookmarks.push(item.id);
+        }
+    };
 
     return (
         <div className={styles.card} onClick={()=> navigator(`/posts/${item.id}`)}>
@@ -15,22 +40,10 @@ const PostItem = ({item}) => {
                 <span className={styles.title}>{item.title}</span>
             </div>
             <div>{item.summary}</div>
-            <div>
-                bookmark btn
-            </div>
+            <MyButton style={customCss.button} onClick={e => addBookmark(e)}>
+                <img style={customCss.icon} src={icon}/>
+            </MyButton>
         </div>
-        // <div className={styles.post}>
-        //     <div className="post-content">
-        //         <strong>{props.post.id}. {props.post.title}</strong>
-        //         <div>
-        //             {props.post.body}
-        //         </div>
-        //     </div>
-        //     <div className="post-btns">
-        //         <MyButton onClick={() => navigator(`/posts/${props.post.id}`)}>Open</MyButton>
-        //         <MyButton onClick={() => props.remove(props.post)}>Delete</MyButton>
-        //     </div>
-        // </div>
     )
 }
 

@@ -1,0 +1,65 @@
+.bg {
+    height: 89vh;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 4rem;
+}
+
+.mainInfo {
+    width: 50%;
+    height: fit-content;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+}
+
+.postHeader > span {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.postHeader > a {
+    margin-left: 0.5rem;
+    background: none;
+    text-decoration: none;
+    color: #777;
+    cursor: pointer;
+}
+
+.mainInfo > img {
+    max-width: 65%;
+    margin: 0.3rem;
+    border-radius: 0.75rem;
+    align-self: center;
+}
+
+.sideContent {
+    margin-left: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    width: 24rem;
+    height: 80%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE, Edge */
+}
+
+.sideContent::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+}
+
+.sideContent > span {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    border-bottom: 1px solid silver;
+    margin-bottom: 1rem;
+}

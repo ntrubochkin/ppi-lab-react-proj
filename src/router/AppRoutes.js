@@ -3,12 +3,14 @@ import Error from "../pages/error/Error";
 import Login from "../pages/login/Login";
 import PostPage from "../pages/postPage/PostPage";
 import Posts from "../pages/news/Posts";
+import Bookmarks from "../pages/bookmarks/Bookmarks";
 
 export const privateRoutes = [
     {path: '/', component: <Posts/>, exact: true},
     {path: '/about', component: <About/>, exact: false},
     {path: '/posts', component: <Posts/>, exact: true},
     {path: '/posts/:id', component: <PostPage/>, exact: true},
+    {path: '/bookmarks', component: <Bookmarks/>, exact: true},
     {path: '*', component: <Error/>, exact: true},
 ]
 

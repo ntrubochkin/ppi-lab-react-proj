@@ -1,9 +1,9 @@
 .loader {
-    --size: 100px;
+    --size: 5rem;
     --double-size: calc(2 * var(--size));
     width: var(--double-size);
     height: var(--size);
-    position: absolute;
+    position: relative;
     border: 4px solid pink;
     border-bottom: none;
     border-top-left-radius: var(--double-size);

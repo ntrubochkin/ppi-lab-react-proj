@@ -31,4 +31,21 @@ export default class NewsService {
         const res = await axios.get(this.URL + `/${id}`);
         return res;
     }
+
+    static async getSimilar(words, limit, originId) {
+        let arr = [];
+        
+        for(const word of words) {
+            const res = await fetch(`${this.URL}?_limit=${limit}&title_contains=${word}`); 
+            const news = await res.json();
+
+            for(const item of news) {
+                if(item.id != originId) {
+                    arr.push(item);
+                }
+            }
+        }
+
+        return arr;
+    }
 }

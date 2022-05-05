@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useFetching } from '../../hooks/useFetching.js';
 import { usePosts } from '../../hooks/usePost.js';
-import { getPageCount } from '../../utils/pages.js';
+import { getPagesCount } from '../../utils/pages.js';
 import MyButton from '../../components/UI/button/MyButton.js';
 import MyModal from '../../components/UI/MyModal/MyModal.js';
 import Pagination from '../../components/UI/pagination/Pagination.js';
@@ -22,6 +22,10 @@ function Posts() {
     const [filter, setFilter] = useState({sort: '', query: '', queryField: ''});
     const lastElement = useRef();
 
+    const customLoaderPosition = {
+        position: 'absolute'
+    };
+
     const [fetchNews, isNewsLoading, newsError] = useFetching(async (start, limit, filter, clear) => {
         const res = await NewsService.getNews(start, limit, filter);
         const totalCount = await NewsService.getNewsCount();
@@ -31,7 +35,7 @@ function Posts() {
             setNews([...news, ...res]);
         }
         setStart(start);
-        setTotalPages(getPageCount(totalCount, limit));
+        setTotalPages(getPagesCount(totalCount, limit));
     });
 
     useEffect(() => {
@@ -46,7 +50,7 @@ function Posts() {
 
     return (
         <div className="App">
-            {isNewsLoading && <Loader/>}
+            {isNewsLoading && <Loader style={customLoaderPosition}/>}
             <div className={styles.newsWrapper}>
                 <PostsFilter filter={filter} setFilter={setFilter}/>
                 <hr/>
