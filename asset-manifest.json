@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/ppi-lab-react-proj/static/css/main.5839cc43.css",
+    "main.css": "/ppi-lab-react-proj/static/css/main.31b94008.css",
     "main.js": "/ppi-lab-react-proj/static/js/main.96e3124a.js",
     "static/media/student.png": "/ppi-lab-react-proj/static/media/student.18a876fb8ca953800670.png",
     "static/media/notebook.png": "/ppi-lab-react-proj/static/media/notebook.a1036400f3efc1a85cc1.png",
     "index.html": "/ppi-lab-react-proj/index.html",
-    "main.5839cc43.css.map": "/ppi-lab-react-proj/static/css/main.5839cc43.css.map",
+    "main.31b94008.css.map": "/ppi-lab-react-proj/static/css/main.31b94008.css.map",
     "main.96e3124a.js.map": "/ppi-lab-react-proj/static/js/main.96e3124a.js.map"
   },
   "entrypoints": [
-    "static/css/main.5839cc43.css",
+    "static/css/main.31b94008.css",
     "static/js/main.96e3124a.js"
   ]
 }
