@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { AuthContext, BookmarksContext } from "./context/AppContext";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import Navbar from "./components/UI/navbar/Navbar";
 import AppRouter from "./components/AppRouter";
 import './static/styles/styles.css';
@@ -21,10 +21,10 @@ function App() {
   return (
     <AuthContext.Provider value={{isAuth, setIsAuth, isLoading}}>
       <BookmarksContext.Provider value={{bookmarks, setBookmarks}}>
-        <BrowserRouter>
+        <HashRouter>
           {isAuth && <Navbar/>}
           <AppRouter/>
-        </BrowserRouter>
+        </HashRouter>
       </BookmarksContext.Provider>
     </AuthContext.Provider>
   );

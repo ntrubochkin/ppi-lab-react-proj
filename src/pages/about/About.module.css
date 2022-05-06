@@ -1,5 +1,5 @@
 .aboutCard {
-    width: 25rem;
+    width: 22rem;
     aspect-ratio: 16 / 9;
     border: 2px solid var(--my-pink);
     border-radius: 22px;
@@ -14,14 +14,18 @@
 .avatar {
     border: 2px solid var(--my-pink);
     border-radius: 50%;
-    width:  100px;
-    height: 100px;
+    width:  4.5rem;
+    height: 4.5rem;
     margin: 4px;
 }
 
 .infoBox {
     display: flex;
     flex-direction: column;
+}
+
+.infoBox > span {
+    font-size: 0.9em;
 }
 
 .infoBox > hr {
@@ -38,6 +42,6 @@
 }
 
 .infoBox > span {
-    margin: 5px 0;
-    padding: 5px;
+    margin: 0.05rem 0;
+    padding: 0.5rem;
 }
