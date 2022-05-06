@@ -38,7 +38,7 @@ const SinglePostPage = () => {
     return (
         <div className={styles.bg}>
             {isLoading ?
-                <Loader/> :
+                <Loader style={{position: 'absolute'}}/> :
                 <div className={styles.mainInfo}>
                     <div className={styles.postHeader}>
                         <span>{post.title}</span>
