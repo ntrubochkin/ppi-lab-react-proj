@@ -1,0 +1,6 @@
+.messageWrapper {
+    border: 2px solid var(--my-pink);
+    padding: 1.25rem 1rem;
+    border-radius: 2rem;
+    margin-top: 2rem;
+}

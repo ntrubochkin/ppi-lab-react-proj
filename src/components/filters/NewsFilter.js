@@ -3,7 +3,7 @@ import MyInput from '../UI/input/MyInput';
 import MySelect from '../UI/select/MySelect';
 import styles from '../filters/Filters.module.css';
 
-const PostFilter = ({filter, setFilter}) => {
+const NewsFilter = ({filter, setFilter}) => {
     var customStyle = {
         input: {
             width: '50%'
@@ -21,21 +21,21 @@ const PostFilter = ({filter, setFilter}) => {
             <MySelect
                 style={customStyle.select}
                 value={filter.queryField}
-                defaultValue="Поле поиска"
+                defaultValue="Search field"
                 onChange={choise => setFilter({...filter, queryField: choise})}
                 options={[
-                    { value: 'title', name: 'название'},
-                    { value: 'summary', name: 'описание'}
+                    { value: 'title', name: 'news title'},
+                    { value: 'summary', name: 'news summary'}
                 ]}
             />
             <MySelect 
                 style={customStyle.select}
                 value={filter.sort}
                 onChange={choise => setFilter({...filter, sort: choise})}
-                defaultValue="Сортировка"
+                defaultValue="Sort"
                 options={[
-                    { value: 'publishedAt', name: 'по дате добавления'},
-                    { value: '', name: 'никак'},
+                    { value: 'publishedAt', name: 'by date added'},
+                    { value: '', name: 'do not sort'},
                 ]}
             />
             
@@ -43,4 +43,4 @@ const PostFilter = ({filter, setFilter}) => {
     );
 };
 
-export default PostFilter;
+export default NewsFilter;

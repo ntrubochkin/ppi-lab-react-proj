@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AppContext.js';
-import classes from '../login/Login.module.css';
 import MyButton from '../../components/UI/button/MyButton.js';
 import MyInput from '../../components/UI/input/MyInput.js';
+import styles from '../login/Login.module.css';
 
 const Login = () => {
     const {isAuth, setIsAuth} = useContext(AuthContext);
@@ -25,10 +25,10 @@ const Login = () => {
     };
 
     return (
-        <div className={classes.bg}>
-            <div className={classes.loginWrapper}>
+        <div className={styles.bg}>
+            <div className={styles.loginWrapper}>
                 <h1 style={{color: 'white'}}>Login</h1>
-                <form onSubmit={login} className={classes.inputsForm}>
+                <form onSubmit={login} className={styles.inputsForm}>
                     <MyInput style={customStyle.input} type='text' placeholder='login'/>
                     <MyInput style={customStyle.input} type='password' placeholder='password'/>
                     <MyButton style={customStyle.button}>Login</MyButton>

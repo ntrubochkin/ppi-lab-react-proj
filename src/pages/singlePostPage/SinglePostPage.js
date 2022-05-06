@@ -1,13 +1,12 @@
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import NewsService from '../../API/PostsService';
-import PostItem from '../../components/PostItem/PostItem';
-import Loader from '../../components/UI/loader/Loader';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useFetching } from '../../hooks/useFetching';
-import styles from '../postPage/NewsItem.module.css';
+import NewsService from '../../API/NewsService.js';
+import NewsItem from '../../components/NewsItem/NewsItem.js';
+import Loader from '../../components/UI/loader/Loader';
+import styles from '../singlePostPage/SinglePostPage.module.css';
 
-const PostPage = () => {
+const SinglePostPage = () => {
     const params = useParams();
     const navigator = useNavigate();
 
@@ -54,7 +53,7 @@ const PostPage = () => {
                 {isSimilarLoading ?
                     <Loader/> :
                     <div>
-                        {similarNews.map((n, i) => <PostItem item={n} key={i}/> )}
+                        {similarNews.map((n, i) => <NewsItem item={n} key={i}/> )}
                     </div>
                 }
             </div>
@@ -62,4 +61,4 @@ const PostPage = () => {
     );
 }
 
-export default PostPage;
+export default SinglePostPage;

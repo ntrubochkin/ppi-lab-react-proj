@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import NewsService from "../../API/PostsService";
-import PostList from "../../components/PostList/PostList";
-import Loader from "../../components/UI/loader/Loader";
-import Pagination from "../../components/UI/pagination/Pagination";
 import { BookmarksContext } from "../../context/AppContext";
 import { useFetching } from "../../hooks/useFetching";
 import { getPagesCount } from "../../utils/pages";
+import Loader from "../../components/UI/loader/Loader";
+import NewsList from "../../components/NewsList/NewsList.js";
+import NewsService from "../../API/NewsService.js";
+import Pagination from "../../components/UI/pagination/Pagination";
 import styles from '../bookmarks/Bookmarks.module.css';
 
 const Bookmarks = () => {
@@ -65,7 +65,7 @@ const Bookmarks = () => {
         <div className={styles.bg}>
             {isBookmarksLoading ?
                 <Loader style={customLoaderPosition}/> :
-                <PostList news={showedItems}/>
+                <NewsList news={showedItems}/>
             }
             <Pagination totalPages={totalPages} page={page} changePage={changePage}/>
         </div>

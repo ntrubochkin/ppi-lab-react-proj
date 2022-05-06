@@ -1,7 +1,7 @@
 .bg {
     width: 100vw;
     height: 100vh;
-    background: url(https://source.unsplash.com/1920x1080/?space) no-repeat;
+    background: url(https://source.unsplash.com/3072x1620/?space) no-repeat;
     background-position: center;
     background-attachment: fixed;
     z-index: -1;
@@ -23,4 +23,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 700px) {
+    .loginWrapper {
+        border: none;
+        background: none;
+    }
+
+    .bg {
+        background: url(https://source.unsplash.com/1000x1500/?space) no-repeat;
+    }
 }

@@ -1,12 +1,11 @@
 import React, { useContext } from 'react';
-import MyButton from '../UI/button/MyButton';
 import { useNavigate } from 'react-router-dom';
-import styles from '../PostItem/PostItem.module.css';
-import icon from '../../static/icons/notebook.png';
 import { BookmarksContext } from '../../context/AppContext';
+import MyButton from '../UI/button/MyButton';
+import styles from '../NewsItem/NewsItem.module.css';
+import icon from '../../static/images/icons/notebook.png';
 
-
-const PostItem = ({item}) => {
+const NewsItem = ({item}) => {
     const navigator = useNavigate();
     const {bookmarks} = useContext(BookmarksContext);
 
@@ -33,7 +32,7 @@ const PostItem = ({item}) => {
     };
 
     return (
-        <div className={styles.card} onClick={()=> navigator(`/posts/${item.id}`)}>
+        <div className={styles.card} onClick={()=> navigator(`/news/${item.id}`)}>
             <div className={styles.cardHeader}>
                 <span className={styles.dateSpan}>{item.publishedAt.split('T')[0]}</span>
                 <img src={item.imageUrl} className={styles.skeleton}/>
@@ -47,4 +46,4 @@ const PostItem = ({item}) => {
     )
 }
 
-export default PostItem;
+export default NewsItem;

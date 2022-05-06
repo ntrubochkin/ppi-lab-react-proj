@@ -5,3 +5,9 @@
     justify-content: space-evenly;
     margin-top: 1rem;
 }
+
+@media only screen and (max-width: 1140px) {
+    .filtersWrapper {
+        width: 94%;
+    }
+}

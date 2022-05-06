@@ -12,7 +12,7 @@ export const useObserver = (ref, canLoad, isLoading, callback) => {
             observer.current.disconnect();
         }
 
-        const observerCallback = function(entries, observer) {
+        const observerCallback = function(entries) {
             if(entries[0].isIntersecting && canLoad) {
                 callback();
             }

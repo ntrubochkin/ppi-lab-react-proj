@@ -1,9 +1,9 @@
 import React from "react";
-import classes from "./MyInput.module.css";
+import styles from "./MyInput.module.css";
 
 const MyInput = (props) => {
     return (
-        <input {...props} className={classes.inputItem} />
+        <input {...props} className={styles.inputItem} />
     );
 };
 
