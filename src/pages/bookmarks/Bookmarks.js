@@ -67,7 +67,9 @@ const Bookmarks = () => {
                 <Loader style={customLoaderPosition}/> :
                 <NewsList news={showedItems}/>
             }
-            <Pagination totalPages={totalPages} page={page} changePage={changePage}/>
+            {bookmarks.length > ITEMS_PER_PAGE &&
+                <Pagination totalPages={totalPages} page={page} changePage={changePage}/>
+            }
         </div>
     );
 };

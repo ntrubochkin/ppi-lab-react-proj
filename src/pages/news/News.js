@@ -35,7 +35,12 @@ function News() {
 
     useEffect(() => {
         fetchNews(0, limit, filter, true);
-    }, [filter]);
+    }, [filter.sort, filter.queryField]);
+
+    useEffect(() => {
+        const id = setTimeout(() => fetchNews(0, limit, filter, true), 1000);
+        return () => clearTimeout(id);
+    }, [filter.query]);
 
     useObserver(lastElement, start < totalPages, isNewsLoading, () => {
         if(news.length > 0) {
